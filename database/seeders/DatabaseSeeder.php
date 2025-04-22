@@ -2,6 +2,7 @@
 
 namespace Database\Seeders;
 
+use App\Models\Unit;
 use App\Models\User;
 // use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
@@ -28,5 +29,29 @@ class DatabaseSeeder extends Seeder
             'email_verified_at' => now(),
             'email' => 'daniel.moranv94@gmail.com',
         ]);
+
+        $units = [
+            'Kilogramo' => 'KG',
+            'Litro' => 'L',
+            'Metro' => 'M',
+            'Centimetro' => 'CM',
+            'Milimetro' => 'MI',
+            'Caja' => 'C',
+            'Unidad' => 'UND',
+            'Sobre' => 'SOBRE',
+            'Botella' => 'B',
+            'Cuarto' => 'Q',
+            'Galon' => 'G',
+            'Millar' => 'ML',
+            'Docena' => 'DOC',
+            'Par' => 'PAR',
+        ];
+
+        foreach ($units as $name => $symbol) {
+            Unit::create([
+                'name' => $name,
+                'symbol' => $symbol,
+            ]);
+        }
     }
 }
